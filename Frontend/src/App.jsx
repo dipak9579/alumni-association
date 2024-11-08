@@ -22,6 +22,7 @@ const HomePage = () => {
     <Events/>
     <SuccessStories/>
     <Gallery/>
+    <Footer />
     </>
   );
 };
@@ -35,7 +36,7 @@ const App = () => {
         <Route path="/register" element={<Register/>}/>
        
       </Routes>
-      <Footer />
+    
     </Router>
   );
 };

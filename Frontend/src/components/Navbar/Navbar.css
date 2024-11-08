@@ -41,6 +41,7 @@
 
 /* Style for the Login button */
 .navbar-links button {
+  margin-top: 4px;
   padding: 8px 16px;
   background-color: #00b4d8;
   color: #1f2430;
