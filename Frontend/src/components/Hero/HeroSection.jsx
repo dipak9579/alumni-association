@@ -4,6 +4,7 @@ import college1 from "../../assets/college1.jpg"
 import college2 from "../../assets/college2.jpg"
 import college3 from "../../assets/college3.jpg"
 import college4 from "../../assets/college4.jpg"
+import { Link } from 'react-router-dom';
 import './HeroSection.css';
 
 const images = [
@@ -38,7 +39,7 @@ const HeroSectionSlider = () => {
             <h1>Welcome to the Alumni Association</h1>
             <p>Reconnect with fellow alumni, stay updated on events, and be part of a vibrant community.</p>
             <div className="hero-buttons">
-              <button className="btn-primary">Register</button>
+             <Link to="/register"><button className="btn-primary">Register</button></Link> 
               <button className="btn-secondary">Explore Events</button>
             </div>
           </div>
