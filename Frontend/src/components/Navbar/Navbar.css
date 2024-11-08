@@ -1,0 +1,62 @@
+/* src/components/Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #1f2430;
+}
+
+.navbar-logo {
+  color: #00b4d8;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links a {
+  color: #dcdfe3;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: #00b4d8;
+}
+
+/* Style for the Login button */
+.navbar-links button {
+  padding: 8px 16px;
+  background-color: #00b4d8;
+  color: #1f2430;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-links button:hover {
+  background-color: #0284a5;
+  color: #ffffff;
+}
+
+.navbar-links button:focus {
+  outline: none;
+  box-shadow: 0 0 4px #00b4d8;
+}

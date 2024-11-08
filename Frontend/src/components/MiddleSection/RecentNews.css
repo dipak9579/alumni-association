@@ -1,0 +1,45 @@
+/* src/components/RecentNews.css */
+.recent-news {
+  padding: 40px 20px;
+  background-color: #1f2430;
+  text-align: center;
+  color: #dcdfe3;
+}
+
+.recent-news h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #00b4d8;
+}
+
+.news-items {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.news-card {
+  background-color: #2c2f3d;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+.news-card h3 {
+  color: #00b4d8;
+  margin-bottom: 10px;
+}
+
+.news-card p {
+  color: #dcdfe3;
+  font-size: 1rem;
+}
