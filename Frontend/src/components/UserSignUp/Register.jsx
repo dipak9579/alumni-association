@@ -1,6 +1,7 @@
 // src/components/Register.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './Register.css';
 
 const Register = () => {
@@ -13,6 +14,7 @@ const Register = () => {
     graduationYear: '',
   });
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,6 +26,11 @@ const Register = () => {
     try {
       const response = await axios.post('http://localhost:5000/api/users/register', formData);
       setMessage(response.data.message);
+
+      // Redirect to login page after 2 seconds
+      setTimeout(() => {
+        navigate('/login');
+      }, 1000);
     } catch (error) {
       setMessage(error.response?.data?.message || 'Registration failed');
     }

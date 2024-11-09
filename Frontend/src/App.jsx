@@ -10,6 +10,7 @@ import SuccessStories from './components/MiddleSection/SuccessStories';
 import Gallery from './components/Gallery/Gallery';
 import Footer from './components/Footer/Footer';
 import Register from './components/UserSignUp/Register';
+import Login from './components/UserSignUp/Login';
 
 
 const HomePage = () => {
@@ -34,6 +35,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<Register/>}/>
+        <Route path="/login" element={<Login/>}/>
        
       </Routes>
     
