@@ -21,7 +21,7 @@ const Login = () => {
     try {
       const response = await axios.post('http://localhost:5000/api/users/login', { email, password, role });
       
-      // Show success toast and navigate based on role
+      // Show success toast before navigating
       toast.success(response.data.message);
       localStorage.setItem('token', response.data.token);  // Store token
       setLoading(false);
@@ -29,12 +29,10 @@ const Login = () => {
       // Call login function to update context with logged-in user
       await login(email, password, role);  // Update context
 
-      // Redirect after login
-      if (role === 'alumni') {
-        navigate('/');
-      } else {
-        navigate('/');
-      }
+      // Add a 2-second delay before redirecting
+      setTimeout(() => {
+        navigate('/'); // Redirect after the delay
+      }, 2000); // 2000 ms = 2 seconds
     } catch (err) {
       setLoading(false);
       toast.error(err.response?.data.message || 'An error occurred');

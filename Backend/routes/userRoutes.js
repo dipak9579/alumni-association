@@ -1,5 +1,5 @@
 import express from 'express';
-import { registerUser, loginUser } from '../controllers/userController.js';
+import { registerUser, loginUser,getUserProfile } from '../controllers/userController.js';
 import authMiddleware from '../middlewares/authMiddleware.js';
 import roleMiddleware from '../middlewares/roleMiddleware.js';
 
@@ -9,10 +9,8 @@ const router = express.Router();
 router.post('/register', registerUser);
 router.post('/login', loginUser);
 
-// Protected route - accessible to authenticated users
-router.get('/profile', authMiddleware, (req, res) => {
-  res.json({ message: `Hello, ${req.user.role}!`, user: req.user });
-});
+
+router.get('/profile', authMiddleware, getUserProfile);
 
 // Student-only route
 router.get('/student-dashboard', authMiddleware, roleMiddleware('student'), (req, res) => {

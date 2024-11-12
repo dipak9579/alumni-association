@@ -6,7 +6,7 @@ import UserProfile from './UserProfile';
 import userIcon from '../../assets/user.png'; // replace with actual user image path
 
 const Navbar = () => {
-  const { user, logout } = useAuth(); // Get user from AuthContext
+  const { user} = useAuth(); // Get user from AuthContext
   const [showProfileMenu, setShowProfileMenu] = useState(false);
 
   const handleProfileClick = () => {
