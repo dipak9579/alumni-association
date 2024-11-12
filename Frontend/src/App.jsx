@@ -1,5 +1,4 @@
-// src/App.js
-import '@fortawesome/fontawesome-free/css/all.min.css';
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HeroSection from './components/Hero/HeroSection';
@@ -11,7 +10,9 @@ import Gallery from './components/Gallery/Gallery';
 import Footer from './components/Footer/Footer';
 import Register from './components/UserSignUp/Register';
 import Login from './components/UserSignUp/Login';
-
+import {AuthProvider} from './components/context/AuthContext';
+import ProtectedRoute from './components/context/ProtectedRoute';
+import UserProfile from './components/Navbar/UserProfile';
 
 const HomePage = () => {
 
@@ -30,16 +31,19 @@ const HomePage = () => {
 
 const App = () => {
   return (
+    <AuthProvider>
     <Router>
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/profile" element={<ProtectedRoute><UserProfile/></ProtectedRoute>}/>
        
       </Routes>
     
     </Router>
+    </AuthProvider>
   );
 };
 

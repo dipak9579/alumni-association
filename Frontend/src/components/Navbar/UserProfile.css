@@ -1,0 +1,59 @@
+/* src/components/UserProfile.css */
+
+.user-profile {
+    position: absolute;
+    top: 65px; /* Adjust based on the height of the navbar */
+    right: 2px; /* Align it with the right side, close to the profile icon */
+    background-color: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+  
+  .profile-header {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .profile-name {
+    font-size: 22px;
+    color: #333;
+    margin: 5px 0;
+  }
+  
+  .profile-email {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .profile-details h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .profile-details p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+  }
+  
+  .logout-button {
+    padding: 10px 20px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+    width: 100%;
+  }
+  
+  .logout-button:hover {
+    background-color: #c9302c;
+  }
+  
