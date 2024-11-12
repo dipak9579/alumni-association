@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './UserProfile.css';
 
@@ -55,6 +56,7 @@ const UserProfile = () => {
         {user.role === 'alumni' && <p>Graduation Year: {user.graduationYear}</p>}
         <p>Role: {user.role.charAt(0).toUpperCase() + user.role.slice(1)}</p>
       </div>
+      <Link to="jobCreate">Job Post</Link>
       <button className="logout-button" onClick={logout}>
         Logout
       </button>

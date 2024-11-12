@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-const authMiddleware = (req, res, next) => {
+export const authMiddleware = (req, res, next) => {
   const token = req.header('Authorization')?.split(' ')[1];
   if (!token) return res.status(401).json({ message: 'No token, authorization denied' });
 
@@ -13,4 +13,11 @@ const authMiddleware = (req, res, next) => {
   }
 };
 
-export default authMiddleware;
+
+export const isAlumni = (req, res, next) => {
+  if (req.user.role !== 'alumni') {
+    return res.status(403).json({ message: 'Access denied' });
+  }
+  next();
+};
+

@@ -13,6 +13,7 @@ import Login from './components/UserSignUp/Login';
 import {AuthProvider} from './components/context/AuthContext';
 import ProtectedRoute from './components/context/ProtectedRoute';
 import UserProfile from './components/Navbar/UserProfile';
+import JobPost from './components/JobPost/JobPost';
 
 const HomePage = () => {
 
@@ -39,6 +40,8 @@ const App = () => {
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/profile" element={<ProtectedRoute><UserProfile/></ProtectedRoute>}/>
+        <Route path="/jobCreate" element={<JobPost/>}/>
+        
        
       </Routes>
     
