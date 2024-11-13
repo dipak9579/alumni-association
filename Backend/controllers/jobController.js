@@ -20,3 +20,12 @@ export const createJobPost = async (req, res) => {
     }
   };
   
+// Fetch all job posts
+export const getJobPosts = async (req, res) => {
+  try {
+    const jobPosts = await JobPost.find().populate('postedBy', 'name role'); // Populate poster details
+    res.status(200).json({ jobPosts });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};

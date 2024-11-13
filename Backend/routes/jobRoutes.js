@@ -1,6 +1,6 @@
 // routes/jobRoutes.js
 import express from 'express';
-import { createJobPost,} from '../controllers/jobController.js';
+import { createJobPost,getJobPosts} from '../controllers/jobController.js';
 import { authMiddleware, isAlumni } from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
@@ -9,6 +9,6 @@ const router = express.Router();
 router.post('/create', authMiddleware, isAlumni, createJobPost);
 
 // Route to get all job posts (accessible by students and alumni)
-// router.get('/getJobs',  getAllJobPosts);
+router.get('/getJobs',authMiddleware,  getJobPosts);
 
 export default router;

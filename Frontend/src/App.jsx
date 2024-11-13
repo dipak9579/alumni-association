@@ -14,6 +14,7 @@ import {AuthProvider} from './components/context/AuthContext';
 import ProtectedRoute from './components/context/ProtectedRoute';
 import UserProfile from './components/Navbar/UserProfile';
 import JobPost from './components/JobPost/JobPost';
+import JobList from './components/JobPost/JobList';
 
 const HomePage = () => {
 
@@ -41,6 +42,8 @@ const App = () => {
         <Route path="/login" element={<Login/>}/>
         <Route path="/profile" element={<ProtectedRoute><UserProfile/></ProtectedRoute>}/>
         <Route path="/jobCreate" element={<JobPost/>}/>
+        <Route path="/getJobs" element={<JobList/>}/>
+        
         
        
       </Routes>

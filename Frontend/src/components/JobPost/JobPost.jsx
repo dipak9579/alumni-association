@@ -27,7 +27,7 @@ const CreateJobPost = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='form1'>
       <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Job Title" required />
       <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" required />
       <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Location" />

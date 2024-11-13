@@ -1,0 +1,50 @@
+/* src/components/JobList.css */
+
+.job-list {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .job-post {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .job-post:last-child {
+    border-bottom: none;
+  }
+  
+  .job-post h3 {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .job-post p {
+    color: #555;
+    line-height: 1.4;
+    margin: 8px 0;
+  }
+  
+  .job-post .apply-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .job-post .apply-link:hover {
+    background-color: #0056b3;
+  }
+  
+  .job-post .posted-by {
+    font-weight: bold;
+  }
+  
