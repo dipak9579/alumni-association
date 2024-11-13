@@ -15,6 +15,7 @@ import ProtectedRoute from './components/context/ProtectedRoute';
 import UserProfile from './components/Navbar/UserProfile';
 import JobPost from './components/JobPost/JobPost';
 import JobList from './components/JobPost/JobList';
+import AboutUs from './components/Navbar/AboutUs';
 
 const HomePage = () => {
 
@@ -23,7 +24,7 @@ const HomePage = () => {
     <>
     <HeroSection/>
     <RecentNews/>
-    <Events/>
+
     <SuccessStories/>
     <Gallery/>
     <Footer />
@@ -39,10 +40,12 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<Register/>}/>
+        <Route path="/events" element={<Events/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/profile" element={<ProtectedRoute><UserProfile/></ProtectedRoute>}/>
         <Route path="/jobCreate" element={<JobPost/>}/>
         <Route path="/getJobs" element={<JobList/>}/>
+        <Route path="/aboutUs" element={<AboutUs/>}/>
         
         
        

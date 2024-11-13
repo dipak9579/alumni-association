@@ -18,9 +18,9 @@ const Navbar = () => {
       <div className="navbar-logo">AlumniAssociation</div>
       <ul className="navbar-links">
         <li><Link to="/">Home</Link></li>
-        <li><a href="#events">Events</a></li>
+       
         {user && <li><Link to="/getJobs">Jobs</Link></li>} {/* Show Jobs link only if user is logged in */}
-        <li><a href="#about">About</a></li>
+        <li><Link to="/aboutUs">AboutUs</Link></li>
         <li>
           <img
             src={userIcon}

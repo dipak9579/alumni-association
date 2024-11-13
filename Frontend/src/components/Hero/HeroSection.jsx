@@ -40,7 +40,8 @@ const HeroSectionSlider = () => {
             <p>Reconnect with fellow alumni, stay updated on events, and be part of a vibrant community.</p>
             <div className="hero-buttons">
              <Link to="/register"><button className="btn-primary">Register</button></Link> 
-              <button className="btn-secondary">Explore Events</button>
+             <Link to="/events"><button className="btn-secondary">Explore Events</button></Link>
+              
             </div>
           </div>
         </div>
