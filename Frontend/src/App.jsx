@@ -16,6 +16,7 @@ import UserProfile from './components/Navbar/UserProfile';
 import JobPost from './components/JobPost/JobPost';
 import JobList from './components/JobPost/JobList';
 import AboutUs from './components/Navbar/AboutUs';
+import AdminDashboard from './pages/AdminDashboard';
 
 const HomePage = () => {
 
@@ -38,6 +39,7 @@ const App = () => {
     <Router>
       <Navbar />
       <Routes>
+      <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<Register/>}/>
         <Route path="/events" element={<Events/>}/>
