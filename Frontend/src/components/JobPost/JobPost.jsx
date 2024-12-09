@@ -33,7 +33,7 @@ const CreateJobPost = () => {
       <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Location" />
       <input type="text" value={requirements} onChange={(e) => setRequirements(e.target.value)} placeholder="Requirements (comma separated)" />
       <input type="url" value={applyUrl} onChange={(e) => setApplyUrl(e.target.value)} placeholder="Application URL" required />  {/* New input */}
-      <button type="submit">Create Job Post</button>
+      <button type="submit" className='job-btn'>Create Job Post</button>
     </form>
   );
 };

@@ -5,12 +5,6 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    images: [
-        {
-          url: String,
-          altText: String,
-        },
-      ],
     eventDate: {
         type: Date,
         required: true,
@@ -19,7 +13,19 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-}, { timestamps: true });
+    location: {
+        type: String,
+        required: true,  // Ensure location is required
+    },
+    time: {
+        type: String,
+        required: true,  // Ensure time is required
+    },
+    images: [{
+        url: String,
+        altText: String,
+    }],
+});
 
 const Event = mongoose.model('Event', eventSchema);
 

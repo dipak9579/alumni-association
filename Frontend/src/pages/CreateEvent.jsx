@@ -6,6 +6,8 @@ const CreateEvent = () => {
     const [eventName, setEventName] = useState('');
     const [eventDate, setEventDate] = useState('');
     const [eventDescription, setEventDescription] = useState('');
+    const [location, setLocation] = useState('');  // Added location state
+    const [time, setTime] = useState('');          // Added time state
     const [image, setImage] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -19,6 +21,8 @@ const CreateEvent = () => {
         formData.append('eventName', eventName);
         formData.append('eventDate', eventDate);
         formData.append('eventDescription', eventDescription);
+        formData.append('location', location);  // Added location to formData
+        formData.append('time', time);          // Added time to formData
         if (image) formData.append('image', image);
 
         try {
@@ -33,6 +37,8 @@ const CreateEvent = () => {
             setEventName('');
             setEventDate('');
             setEventDescription('');
+            setLocation('');  // Clear location field
+            setTime('');      // Clear time field
             setImage(null);
         } catch (error) {
             console.error('Error creating event:', error);
@@ -83,6 +89,28 @@ const CreateEvent = () => {
                         placeholder="Enter event description"
                         required
                     ></textarea>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="location">Event Location</label>
+                    <input
+                        type="text"
+                        id="location"
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
+                        placeholder="Enter event location"
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="time">Event Time</label>
+                    <input
+                        type="text"
+                        id="time"
+                        value={time}
+                        onChange={(e) => setTime(e.target.value)}
+                        placeholder="Enter event time"
+                        required
+                    />
                 </div>
                 <div className="form-group">
                     <label htmlFor="image">Upload Event Image</label>

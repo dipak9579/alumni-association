@@ -9,7 +9,7 @@
 .events h2 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #00b4d8; /* Teal accent color */
+  color: #fff; /* Teal accent color */
 }
 
 .event-items {
@@ -81,4 +81,31 @@
   font-size: 0.85rem;
   color: #fff;
   margin: 4px 0;
+}
+
+.regBtn {
+  background-color: #00b4d8; /* Teal accent color */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 10px;
+  cursor: pointer; /* Ensure pointer is shown */
+  z-index: 10; /* Ensure the button is on top */
+}
+
+.regBtn:hover {
+  cursor: pointer;
+}
+
+.regBtn:focus {
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 180, 216, 0.8); /* Focus state with teal glow */
+}
+
+.regBtn:active {
+  transform: translateY(2px); /* Button slightly pressed when clicked */
 }
