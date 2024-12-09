@@ -1,32 +1,58 @@
 import React, { useState } from 'react';
 import './CreateEvent.css';
+import axios from 'axios';
 
 const CreateEvent = () => {
     const [eventName, setEventName] = useState('');
     const [eventDate, setEventDate] = useState('');
     const [eventDescription, setEventDescription] = useState('');
+    const [image, setImage] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
+        setError(null);
 
-        // Handle event creation logic here
-        console.log('Event Created:', {
-            eventName,
-            eventDate,
-            eventDescription,
-        });
+        const formData = new FormData();
+        formData.append('eventName', eventName);
+        formData.append('eventDate', eventDate);
+        formData.append('eventDescription', eventDescription);
+        if (image) formData.append('image', image);
 
-        // Clear the form
-        setEventName('');
-        setEventDate('');
-        setEventDescription('');
-        alert('Event created successfully!');
+        try {
+            const response = await axios.post('http://localhost:5000/api/events/create', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+
+            console.log('Event Created:', response.data);
+            alert('Event created successfully!');
+            setEventName('');
+            setEventDate('');
+            setEventDescription('');
+            setImage(null);
+        } catch (error) {
+            console.error('Error creating event:', error);
+            setError('Failed to create event. Please try again.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleImageChange = (e) => {
+        if (e.target.files[0]) {
+            setImage(e.target.files[0]);
+        }
     };
 
     return (
         <div className="create-event">
             <h2>Create New Event</h2>
-            <form onSubmit={handleSubmit}>
+            {error && <p className="error">{error}</p>}
+            <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <div className="form-group">
                     <label htmlFor="eventName">Event Name</label>
                     <input
@@ -58,7 +84,18 @@ const CreateEvent = () => {
                         required
                     ></textarea>
                 </div>
-                <button type="submit" className="submit-button">Create Event</button>
+                <div className="form-group">
+                    <label htmlFor="image">Upload Event Image</label>
+                    <input
+                        type="file"
+                        id="image"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                    />
+                </div>
+                <button type="submit" className="submit-button" disabled={loading}>
+                    {loading ? 'Creating Event...' : 'Create Event'}
+                </button>
             </form>
         </div>
     );
