@@ -6,13 +6,13 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  h2 {
+ .register-container h2 {
     text-align: center;
-    color: #333;
+    color: #fff;
     margin-bottom: 20px;
   }
   
@@ -43,7 +43,7 @@
     font-size: 16px;
   }
   
-  button {
+  .user-btn{
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -56,7 +56,7 @@
     margin-top: 20px;
   }
   
-  button:hover {
+  .user-btn:hover {
     background-color: #0056b3;
   }
   

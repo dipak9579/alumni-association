@@ -39,28 +39,6 @@
   color: #00b4d8;
 }
 
-/* Style for the Login button */
-.navbar-links button {
-  margin-top: 4px;
-  padding: 8px 16px;
-  /* background-color: #00b4d8; */
-  color: #1f2430;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.navbar-links button:hover {
-  background-color: #0284a5;
-  color: #ffffff;
-}
-
-.navbar-links button:focus {
-  outline: none;
-  box-shadow: 0 0 4px #00b4d8;
-}
 /* src/components/Navbar.css */
 
 .navbar-profile-image {

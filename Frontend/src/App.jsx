@@ -17,6 +17,7 @@ import JobPost from './components/JobPost/JobPost';
 import JobList from './components/JobPost/JobList';
 import AboutUs from './components/Navbar/AboutUs';
 import AdminDashboard from './pages/AdminDashboard';
+import EventBooking from './components/MiddleSection/EventBooking';
 
 const HomePage = () => {
 
@@ -48,6 +49,7 @@ const App = () => {
         <Route path="/jobCreate" element={<JobPost/>}/>
         <Route path="/getJobs" element={<JobList/>}/>
         <Route path="/aboutUs" element={<AboutUs/>}/>
+        <Route path="/eventBook" element={<EventBooking/>}/>
         
         
        

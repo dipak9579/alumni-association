@@ -1,34 +1,43 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // Import axios for making API requests
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './Event.css';
 
 const Events = () => {
-  const [events, setEvents] = useState([]); // Store events from the API
-  const [loading, setLoading] = useState(true); // State to manage loading state
-  const [error, setError] = useState(null); // Store any errors
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate(); // Initialize navigate
 
   // Fetch events from the backend
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/events/allEvent'); // Make the GET request to the API
-        setEvents(response.data.events); // Set the events data in the state
+        const response = await axios.get('http://localhost:5000/api/events/allEvent');
+        setEvents(response.data.events);
       } catch (err) {
-        setError('Failed to load events.'); // Handle errors
+        setError('Failed to load events.');
       } finally {
-        setLoading(false); // Set loading to false once the request is done
+        setLoading(false);
       }
     };
 
-    fetchEvents(); // Call the function to fetch events
-  }, []); // Empty dependency array means this will run once when the component mounts
+    fetchEvents();
+  }, []);
+
+  // Handle "Book Now" button click
+  const handleBookNow = (eventId, eventName) => {
+    navigate('/eventBook', {
+      state: { eventId, eventName }, // Pass event details via state
+    });
+  };
 
   if (loading) {
-    return <div>Loading events...</div>; // Show loading text while events are being fetched
+    return <div>Loading events...</div>;
   }
 
   if (error) {
-    return <div>{error}</div>; // Show error message if there was an error fetching events
+    return <div>{error}</div>;
   }
 
   return (
@@ -53,9 +62,11 @@ const Events = () => {
                 <span className="event-location">
                   Location: {event.location || 'Not available'}
                 </span>
-               
-                <button className="regBtn" >
-                  Register Now
+                <button
+                  className="regBtn"
+                  onClick={() => handleBookNow(event._id, event.eventName)} // Call the handler
+                >
+                  Book Now
                 </button>
               </div>
             </div>
