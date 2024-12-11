@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './EventBooking.css'; // Add custom styles if needed
+import { useNavigate, useLocation } from 'react-router-dom';
+import './EventBooking.css';
 
 const EventBooking = () => {
     const [name, setName] = useState('');
@@ -8,28 +9,35 @@ const EventBooking = () => {
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const { eventName } = location.state || {}; // Extract eventName if available
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
         setError(null);
-        setMessage('');
+
         const token = localStorage.getItem('token');
 
         try {
-            const response = await axios.post('http://localhost:5000/api/bookings/create', {
-                name,
-                email,
-            },
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`, // Include the token in the header.
-                },
-            });
+            const response = await axios.post(
+                'http://localhost:5000/api/bookings/create',
+                { name, email },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
 
             setMessage(response.data.message);
             setName('');
             setEmail('');
+
+            // Redirect to confirmation page after successful booking
+            navigate('/confirmation', { state: { name, email, eventName } });
         } catch (error) {
             setError(error.response?.data?.message || 'Booking failed. Please try again.');
         } finally {

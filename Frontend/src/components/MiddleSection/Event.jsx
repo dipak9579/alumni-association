@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Event.css';
+import { useAuth } from '../context/AuthContext'; // Import useAuth
 
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); // Initialize navigate
+  const { user, loading: authLoading } = useAuth(); // Get authentication state
+  const navigate = useNavigate();
 
   // Fetch events from the backend
   useEffect(() => {
@@ -27,12 +29,18 @@ const Events = () => {
 
   // Handle "Book Now" button click
   const handleBookNow = (eventId, eventName) => {
-    navigate('/eventBook', {
-      state: { eventId, eventName }, // Pass event details via state
-    });
+    if (!user) {
+      // Redirect to login if user is not authenticated
+      navigate('/login', {
+        state: { redirectTo: `/eventBook`, eventId, eventName },
+      });
+    } else {
+      // Proceed to booking if authenticated
+      navigate('/eventBook', { state: { eventId, eventName } });
+    }
   };
 
-  if (loading) {
+  if (loading || authLoading) {
     return <div>Loading events...</div>;
   }
 
@@ -64,7 +72,7 @@ const Events = () => {
                 </span>
                 <button
                   className="regBtn"
-                  onClick={() => handleBookNow(event._id, event.eventName)} // Call the handler
+                  onClick={() => handleBookNow(event._id, event.eventName)}
                 >
                   Book Now
                 </button>

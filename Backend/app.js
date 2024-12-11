@@ -6,6 +6,7 @@ import userRoutes from './routes/userRoutes.js';
 import jobRoutes from './routes/jobRoutes.js'
 import eventRoutes from './routes/eventRoutes.js'
 import bookingRoutes from './routes/bookingRoutes.js'
+import galleryRoutes from './routes/galleryRoutes.js'
 
 dotenv.config();
 connectDB();
@@ -18,6 +19,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/jobs',jobRoutes)
 app.use('/api/events',eventRoutes)
 app.use('/api/bookings', bookingRoutes);
+app.use('/api/gallery', galleryRoutes);
 
 app.get('/', (req, res) => res.send('Alumni Association API is running'));
 

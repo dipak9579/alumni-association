@@ -1,31 +1,40 @@
-// src/components/Gallery.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './Gallery.css';
 
-const images = [
-  "https://via.placeholder.com/300x200", // Replace these URLs with actual image URLs
-  "https://via.placeholder.com/300x200",
-  "https://via.placeholder.com/300x200",
-  "https://via.placeholder.com/300x200",
-  "https://via.placeholder.com/300x200",
-  "https://via.placeholder.com/300x200",
-  "https://via.placeholder.com/300x200",
-  "https://via.placeholder.com/300x200"
-];
-
 const Gallery = () => {
+  const [images, setImages] = useState([]);
+
+  // Fetch images from backend
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/gallery/getImage');
+        setImages(response.data);  // Set the fetched images in state
+      } catch (err) {
+        console.error('Error fetching images:', err);
+      }
+    };
+
+    fetchImages();
+  }, []);
+
   return (
     <section className="gallery">
       <h2>Gallery</h2>
       <div className="gallery-grid">
-        {images.map((image, index) => (
-          <div className="gallery-item" key={index}>
-            <img src={image} alt={`Alumni Event ${index + 1}`} />
-            <div className="overlay">
-              <p>Event #{index + 1}</p>
+        {images.length > 0 ? (
+          images.map((image, index) => (
+            <div className="gallery-item" key={index}>
+              <img src={image.imageUrl} alt={`Alumni Event ${index + 1}`} />
+              <div className="overlay">
+                <p>Event #{index + 1}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>No images available</p>
+        )}
       </div>
     </section>
   );

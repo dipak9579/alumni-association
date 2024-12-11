@@ -1,0 +1,42 @@
+.confirmation {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .confirmation h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .confirmation p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .confirmation strong {
+    color: #2c3e50;
+  }
+  
+  .confirmation .btn-home {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .confirmation .btn-home:hover {
+    background-color: #2980b9;
+  }
+  
