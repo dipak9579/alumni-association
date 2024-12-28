@@ -19,6 +19,9 @@ import AboutUs from './components/Navbar/AboutUs';
 import AdminDashboard from './pages/AdminDashboard';
 import EventBooking from './components/MiddleSection/EventBooking';
 import Confirmation from './components/MiddleSection/Confirmation';
+import { AdminProvider } from './components/context/AdminContext';
+import ProtectedRouteAdmin from './pages/ProtectedRouteAdmin';
+import AdminLogin from './pages/AdminLogin';
 
 const HomePage = () => {
 
@@ -38,10 +41,13 @@ const HomePage = () => {
 const App = () => {
   return (
     <AuthProvider>
+      <AdminProvider>
     <Router>
       <Navbar />
       <Routes>
-      <Route path="/admin" element={<AdminDashboard />} />
+      <Route path="/admin" element={<ProtectedRouteAdmin><AdminDashboard /></ProtectedRouteAdmin>} />
+
+        <Route path="/adminLogin" element={<AdminLogin/>} />
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<Register/>}/>
         <Route path="/events" element={<Events/>}/>
@@ -59,6 +65,7 @@ const App = () => {
       </Routes>
     
     </Router>
+    </AdminProvider>
     </AuthProvider>
   );
 };
