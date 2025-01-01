@@ -18,7 +18,7 @@ const Confirmation = () => {
     <div className="confirmation">
       <h2>Booking Confirmation</h2>
       <p>Thank you, <strong>{name}</strong>, for booking your spot!</p>
-      <p>We’ve sent a confirmation email to <strong>{email}</strong>.</p>
+      
       {eventName && <p>You are booked for the event: <strong>{eventName}</strong>.</p>}
       <button className="btn-home" onClick={() => navigate('/events')}>
         Back to Events
